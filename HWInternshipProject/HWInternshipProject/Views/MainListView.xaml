@@ -6,7 +6,7 @@
              x:Class="HWInternshipProject.Views.MainListView"
              xmlns:resources="clr-namespace:HWInternshipProject.Resources"
              xmlns:converters="clr-namespace:HWInternshipProject.EventArgsConverters"
-             Title="{x:Static resources:TextResources.Title_MainList}"
+             Title="{Binding TextResources[Title_MainList]}"
              Style="{DynamicResource pageStyle}">
 
     <ContentPage.ToolbarItems>
@@ -27,16 +27,18 @@
                   IsVisible="{Binding IsListVisible}"
                   Grid.Row="0">
             <ListView.Behaviors>
-                <prism:EventToCommandBehavior EventName="ItemTapped" Command="{Binding OpenProfileImageCommand}" EventArgsConverter="{StaticResource itemTappedEventArgsConverter}" />
+                <prism:EventToCommandBehavior EventName="ItemTapped"
+                                              Command="{Binding OpenProfileImageCommand}"
+                                              EventArgsConverter="{StaticResource itemTappedEventArgsConverter}" />
             </ListView.Behaviors>
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
                         <ViewCell.ContextActions>
                             <MenuItem Command="{Binding DeleteCommand}"
-                                              Text="{x:Static resources:TextResources.Delete}"/>
+                                              Text="{Binding TextResources[Delete]}"/>
                             <MenuItem Command="{Binding EditCommand}"
-                                              Text="{x:Static resources:TextResources.Edit}"/>
+                                              Text="{Binding TextResources[Edit]}"/>
                         </ViewCell.ContextActions>
                         <Grid ColumnDefinitions="1*,2*" HeightRequest="120">
                             <Image Grid.Column="0" 
@@ -52,7 +54,7 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <Label Text="{x:Static resources:TextResources.NoAddedProfiles}" 
+        <Label Text="{Binding TextResources[NoAddedProfiles]}" 
                Style="{DynamicResource labelStyle}"
                    IsVisible="{Binding  IsNoProfilesAdded}"
                    VerticalOptions="CenterAndExpand"

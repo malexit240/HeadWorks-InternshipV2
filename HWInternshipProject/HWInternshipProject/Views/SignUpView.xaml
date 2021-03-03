@@ -5,26 +5,26 @@
              xmlns:resources="clr-namespace:HWInternshipProject.Resources"
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="HWInternshipProject.Views.SignUpView"
-             Title="{x:Static resources:TextResources.Title_UserSignUp}"
+             Title="{Binding TextResources[Title_UserSignUp]}"
              Style="{DynamicResource pageStyle}">
 
     <StackLayout Margin="20, 5">
         <ActivityIndicator IsRunning="{Binding HasLongActivity}" 
                            Style="{DynamicResource activityIndicatorStyle}"/>
         <StackLayout VerticalOptions="CenterAndExpand">
-            <Entry Placeholder="{x:Static resources:TextResources.Login}"
+            <Entry Placeholder="{Binding TextResources[Login]}"
                Text="{Binding Login}"
                    Style="{DynamicResource entryStyle}"/>
-            <Entry Placeholder="{x:Static resources:TextResources.Password}"
+            <Entry Placeholder="{Binding TextResources[Password]}"
                Text="{Binding Password}"
                IsPassword="True"
                Style="{DynamicResource entryStyle}"/>
-            <Entry Placeholder="{x:Static resources:TextResources.ConfirmPassword}"
+            <Entry Placeholder="{Binding TextResources[ConfirmPassword]}"
                Text="{Binding ConfirmPassword}"
                IsPassword="True"
                Style="{DynamicResource entryStyle}"/>
         </StackLayout>
-        <Button Text="{x:Static resources:TextResources.SignUp}"
+        <Button Text="{Binding TextResources[SignUp]}"
                 Command="{Binding SignUpCommand}"
                 Style="{DynamicResource buttonStyle}"
                 Margin="0,0,0,60"/>

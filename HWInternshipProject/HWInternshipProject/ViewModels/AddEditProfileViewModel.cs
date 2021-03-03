@@ -86,7 +86,7 @@ namespace HWInternshipProject.ViewModels
 
                 if (NickName == "" || Name == "")
                 {
-                    UserDialogs.Instance.Alert(TextResources.FiledsNandNNmustbefilled, TextResources.Error, TextResources.Ok);
+                    UserDialogs.Instance.Alert(TextResources["FiledsNandNNmustbefilled"], TextResources["Error"], TextResources["Ok"]);
                     return;
                 }
 
@@ -101,20 +101,20 @@ namespace HWInternshipProject.ViewModels
             {
                 UserDialogs.Instance.ActionSheet(new ActionSheetConfig()
                 {
-                    Message = TextResources.ChooseAction,
+                    Message = TextResources["ChooseAction"],
                     Options = new List<ActionSheetOption>()
                     {
-                        new ActionSheetOption(TextResources.PickAtGallery, async ()=>{
+                        new ActionSheetOption(TextResources["PickAtGallery"], async ()=>{
                             var result = await FilePicker.PickAsync();
                             ImageDestination = result?.FullPath ?? ImageDestination;
                         },"ic_collections_3x.png"),
 
-                        new ActionSheetOption(TextResources.TakeAPhotoWithCamera, async ()=>{
+                        new ActionSheetOption(TextResources["TakeAPhotoWithCamera"], async ()=>{
                             var result = await MediaPicker.CapturePhotoAsync();
                             ImageDestination = result?.FullPath ?? ImageDestination;
                         },"ic_camera_alt3x.png")
                     },
-                    Cancel = new ActionSheetOption(TextResources.Cancel)
+                    Cancel = new ActionSheetOption(TextResources["Cancel"])
                 });
             });
         }

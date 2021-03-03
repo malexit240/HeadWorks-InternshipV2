@@ -7,22 +7,21 @@
              xmlns:resources="clr-namespace:HWInternshipProject.Resources"
              xmlns:input="clr-namespace:Plugin.InputKit.Shared.Controls;assembly=Plugin.InputKit"
              BackgroundColor="{DynamicResource PageBackgroundColor}"
-             Title="{x:Static resources:TextResources.Title_SettingsView}">
+             Title="{Binding TextResources[Title_SettingsView]}">
     <StackLayout>
-
         <StackLayout>
-            <Label Text="{x:Static resources:TextResources.ProfilesListOrderBy}"
+            <Label Text="{Binding TextResources[ProfilesListOrderBy]}"
                    Style ="{DynamicResource labelStyle}"/>
             <input:RadioButtonGroupView>
-                <input:RadioButton Text ="{x:Static resources:TextResources.NickName}" 
+                <input:RadioButton Text ="{Binding TextResources[NickName]}" 
                      IsChecked="{Binding OrderBy_NickName}"
                      Style="{DynamicResource radioButtonStyle}"
                      ClickCommand="{Binding CheckedNickNameCommand}"/>
-                <input:RadioButton Text="{x:Static resources:TextResources.Name}" 
+                <input:RadioButton Text="{Binding TextResources[Name]}" 
                      IsChecked="{Binding OrderBy_Name}"
                      Style="{DynamicResource radioButtonStyle}"
                      ClickCommand="{Binding CheckedNameCommand}"/>
-                <input:RadioButton Text="{x:Static resources:TextResources.CreationTime}"
+                <input:RadioButton Text="{Binding TextResources[CreationTime]}"
                      IsChecked="{Binding OrderBy_CreationTime}"
                      Style="{DynamicResource radioButtonStyle}"
                      ClickCommand="{Binding CheckedCreationTimeCommand}"/>
@@ -31,7 +30,7 @@
         </StackLayout>
 
         <StackLayout Orientation="Horizontal">
-            <Label Text="{x:Static resources:TextResources.Theme}"
+            <Label Text="{Binding TextResources[Theme]}"
                    Style ="{DynamicResource labelStyle}"/>
             <Switch IsToggled="{Binding IsLightTheme}"
                     Style="{DynamicResource switchStyle}"/>
@@ -39,14 +38,14 @@
 
 
         <StackLayout>
-            <Label Text="{x:Static resources:TextResources.Choose_language}"
+            <Label Text="{Binding TextResources[Choose_language]}"
                    Style ="{DynamicResource labelStyle}"/>
             <input:RadioButtonGroupView>
-                <input:RadioButton Text="{x:Static resources:TextResources.English}" 
+                <input:RadioButton Text="{Binding TextResources[English]}" 
                      IsChecked="{Binding IsEn_US}"
                      Style="{DynamicResource radioButtonStyle}"
                      ClickCommand="{Binding CheckedEnglishCommand}"/>
-                <input:RadioButton  Text="{x:Static resources:TextResources.Russian}"
+                <input:RadioButton  Text="{Binding TextResources[Russian]}"
                      IsChecked="{Binding IsRu_RU}"
                      Style="{DynamicResource radioButtonStyle}"
                      ClickCommand="{Binding CheckedRussianCommand}"/>

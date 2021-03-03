@@ -69,9 +69,9 @@ namespace HWInternshipProject.ViewModels
                else
                    UserDialogs.Instance.Alert(new AlertConfig()
                    {
-                       Title = TextResources.Error,
-                       Message = TextResources.UserNotFound,
-                       OkText = TextResources.Ok,
+                       Title = TextResources["Error"],
+                       Message = TextResources["UserNotFound"],
+                       OkText = TextResources["Ok"],
                        OnAction = () => Password = ""
 
                    });

@@ -4,6 +4,7 @@ using Xamarin.Essentials;
 using Xamarin.Forms;
 using HWInternshipProject.Models;
 using HWInternshipProject.Dependency;
+using HWInternshipProject.Resources;
 
 namespace HWInternshipProject.Services.Settings
 {
@@ -41,6 +42,7 @@ namespace HWInternshipProject.Services.Settings
             {
                 Preferences.Set(nameof(CurrentCultureInfo), (string)value.Name);
                 System.Globalization.CultureInfo.CurrentUICulture = value;
+                MessagingCenter.Send<object, CultureChangedMessage>(this, string.Empty, new CultureChangedMessage(value));
             }
         }
     }

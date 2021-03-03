@@ -66,9 +66,9 @@ namespace HWInternshipProject.ViewModels
             {
                 UserDialogs.Instance.Confirm(new ConfirmConfig()
                 {
-                    Message = TextResources.WouldYouWantToDelete,
-                    OkText = TextResources.Yes,
-                    CancelText = TextResources.No,
+                    Message = TextResources["WouldYouWantToDelete"],
+                    OkText = TextResources["Yes"],
+                    CancelText = TextResources["No"],
                     OnAction = (confirm) =>
                     {
                         if (confirm)

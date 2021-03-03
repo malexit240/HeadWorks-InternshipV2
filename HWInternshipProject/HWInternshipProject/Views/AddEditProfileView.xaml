@@ -5,7 +5,7 @@
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="HWInternshipProject.Views.AddEditProfileView"
              xmlns:resources="clr-namespace:HWInternshipProject.Resources"
-             Title="{x:Static resources:TextResources.Title_AddEditProfile}"
+             Title="{Binding TextResources[Title_AddEditProfile]}"
              Style="{DynamicResource pageStyle}">
 
     <ContentPage.ToolbarItems>
@@ -20,18 +20,18 @@
             </Image.GestureRecognizers>
         </Image>
         <StackLayout Grid.Row="1">
-            <Entry Placeholder="{x:Static resources:TextResources.NickName}" 
-               Text="{Binding NickName}"
+            <Entry Placeholder="{Binding TextResources[NickName]}" 
+                   Text="{Binding NickName}"
                    Style="{DynamicResource entryStyle}"/>
-            <Entry Placeholder="{x:Static resources:TextResources.Name}" 
-               Text="{Binding Name}"
-               MaxLength="120"
+            <Entry Placeholder="{Binding TextResources[Name]}" 
+                   Text="{Binding Name}"
+                   MaxLength="120"
                    Style="{DynamicResource entryStyle}"/>
-            <Editor Placeholder="{x:Static resources:TextResources.Description}"
-                Text="{Binding Description}"
-                HeightRequest="200"
+            <Editor Placeholder="{Binding TextResources[Description]}"
+                    Text="{Binding Description}"
+                    HeightRequest="200"
                     Style="{DynamicResource editorStyle}"/>
         </StackLayout>
     </Grid>
-    
+
 </ContentPage>
