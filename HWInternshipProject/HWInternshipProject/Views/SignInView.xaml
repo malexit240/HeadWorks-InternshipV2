@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"
+             xmlns:resources="clr-namespace:HWInternshipProject.Resources"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="HWInternshipProject.Views.SignInView"
+             Title="{x:Static resources:TextResources.Title_UserSignIn}"
+             Style="{DynamicResource pageStyle}">
+
+    <StackLayout Margin="20, 5">
+        <ActivityIndicator IsRunning="{Binding HasLongActivity}" 
+                           Style="{DynamicResource activityIndicatorStyle}"/>
+        <StackLayout VerticalOptions="CenterAndExpand" >
+            <Entry Placeholder="{x:Static resources:TextResources.Login}"
+               Text="{Binding Login}"
+               Style="{DynamicResource entryStyle}"/>
+            <Entry Placeholder="{x:Static resources:TextResources.Password}"
+               Text="{Binding Password}"
+               IsPassword="True"
+               Style="{DynamicResource entryStyle}"/>
+        </StackLayout>
+        <StackLayout VerticalOptions="End" Margin="0,0,0,60">
+            <Button Text="{x:Static resources:TextResources.SignIn}"
+                Command="{Binding SignInCommand}"
+                Style="{DynamicResource buttonStyle}"/>
+            <Label Text="{x:Static resources:TextResources.SignUp}"   
+               Style="{DynamicResource labelLinkStyle}">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding SignUpCommand}"/>
+                </Label.GestureRecognizers>
+            </Label>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

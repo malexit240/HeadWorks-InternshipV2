@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="HWInternshipProject.Views.SettingsView"
+             xmlns:resources="clr-namespace:HWInternshipProject.Resources"
+             xmlns:input="clr-namespace:Plugin.InputKit.Shared.Controls;assembly=Plugin.InputKit"
+             BackgroundColor="{DynamicResource PageBackgroundColor}"
+             Title="{x:Static resources:TextResources.Title_SettingsView}">
+    <StackLayout>
+
+        <StackLayout>
+            <Label Text="{x:Static resources:TextResources.ProfilesListOrderBy}"
+                   Style ="{DynamicResource labelStyle}"/>
+            <input:RadioButtonGroupView>
+                <input:RadioButton Text ="{x:Static resources:TextResources.NickName}" 
+                     IsChecked="{Binding OrderBy_NickName}"
+                     Style="{DynamicResource radioButtonStyle}"
+                     ClickCommand="{Binding CheckedNickNameCommand}"/>
+                <input:RadioButton Text="{x:Static resources:TextResources.Name}" 
+                     IsChecked="{Binding OrderBy_Name}"
+                     Style="{DynamicResource radioButtonStyle}"
+                     ClickCommand="{Binding CheckedNameCommand}"/>
+                <input:RadioButton Text="{x:Static resources:TextResources.CreationTime}"
+                     IsChecked="{Binding OrderBy_CreationTime}"
+                     Style="{DynamicResource radioButtonStyle}"
+                     ClickCommand="{Binding CheckedCreationTimeCommand}"/>
+            </input:RadioButtonGroupView>
+
+        </StackLayout>
+
+        <StackLayout Orientation="Horizontal">
+            <Label Text="{x:Static resources:TextResources.Theme}"
+                   Style ="{DynamicResource labelStyle}"/>
+            <Switch IsToggled="{Binding IsLightTheme}"
+                    Style="{DynamicResource switchStyle}"/>
+        </StackLayout>
+
+
+        <StackLayout>
+            <Label Text="{x:Static resources:TextResources.Choose_language}"
+                   Style ="{DynamicResource labelStyle}"/>
+            <input:RadioButtonGroupView>
+                <input:RadioButton Text="{x:Static resources:TextResources.English}" 
+                     IsChecked="{Binding IsEn_US}"
+                     Style="{DynamicResource radioButtonStyle}"
+                     ClickCommand="{Binding CheckedEnglishCommand}"/>
+                <input:RadioButton  Text="{x:Static resources:TextResources.Russian}"
+                     IsChecked="{Binding IsRu_RU}"
+                     Style="{DynamicResource radioButtonStyle}"
+                     ClickCommand="{Binding CheckedRussianCommand}"/>
+            </input:RadioButtonGroupView>
+        </StackLayout>
+
+    </StackLayout>
+</ContentPage>
