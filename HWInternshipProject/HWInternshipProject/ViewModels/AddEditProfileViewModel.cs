@@ -1,16 +1,10 @@
-﻿using Prism.Commands;
-using Prism.Mvvm;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using Prism.Navigation;
-using HWInternshipProject.Models;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using Xamarin.Essentials;
+using Prism.Commands;
+using Prism.Navigation;
 using Acr.UserDialogs;
-
+using HWInternshipProject.Models;
 using HWInternshipProject.Services.Models;
-using HWInternshipProject.Resources;
 
 namespace HWInternshipProject.ViewModels
 {
@@ -21,7 +15,7 @@ namespace HWInternshipProject.ViewModels
 
         public string Name
         {
-            get { return _profile.Name; }
+            get => _profile.Name;
             set
             {
                 _profile.Name = value;
@@ -31,7 +25,7 @@ namespace HWInternshipProject.ViewModels
 
         public string NickName
         {
-            get { return _profile.NickName; }
+            get => _profile.NickName;
             set
             {
                 _profile.NickName = value;
@@ -41,7 +35,7 @@ namespace HWInternshipProject.ViewModels
 
         public string Description
         {
-            get { return _profile.Description; }
+            get => _profile.Description;
             set
             {
                 _profile.Description = value;
@@ -51,7 +45,7 @@ namespace HWInternshipProject.ViewModels
 
         public string ImageDestination
         {
-            get { return _profile.ImageDestination == "" ? "DefaultProfilePicture.png" : _profile.ImageDestination; }
+            get => _profile.ImageDestination == "" ? "DefaultProfilePicture.png" : _profile.ImageDestination;
             set
             {
                 _profile.ImageDestination = value;

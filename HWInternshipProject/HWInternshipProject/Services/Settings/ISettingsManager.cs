@@ -7,7 +7,6 @@ namespace HWInternshipProject.Services.Settings
         Theme Theme { get; set; }
         ProfilesListOrderBy ProfilesListOrderBy { get; set; }
         CultureInfo CurrentCultureInfo { get; set; }
+        void Init();
     }
-
-
 }

@@ -34,7 +34,7 @@ namespace HWInternshipProject.ViewModels
         {
             GoBackCommand = new DelegateCommand(() =>
             {
-                NavigationService.GoBackAsync();
+                NavigationService.GoBackAsync(null,true,false);
             });
         }
     }

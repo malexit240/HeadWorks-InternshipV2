@@ -18,36 +18,27 @@ namespace HWInternshipProject.ViewModels
 {
     public class SignInViewModel : ViewModelBase
     {
-
         string _login = "";
         string _password = "";
 
         public string Login
         {
-            get { return _login; }
-            set
-            {
-                SetProperty(ref _login, value);
-            }
+            get => _login;
+            set => SetProperty(ref _login, value);
         }
+
         public string Password
         {
-            get { return _password; }
-            set
-            {
-                SetProperty(ref _password, value);
-            }
+            get => _password;
+            set => SetProperty(ref _password, value);
         }
 
         private bool _hasLongActivity = false;
 
         public bool HasLongActivity
         {
-            get { return _hasLongActivity; }
-            set
-            {
-                SetProperty(ref _hasLongActivity, value);
-            }
+            get => _hasLongActivity;
+            set => SetProperty(ref _hasLongActivity, value);
         }
 
         public DelegateCommand SignInCommand { get; set; }
@@ -62,10 +53,9 @@ namespace HWInternshipProject.ViewModels
                HasLongActivity = true;
                var user = await userService.SignInAsync(Login, Password);
                HasLongActivity = false;
+
                if (user != null)
-               {
                    await navigationService.NavigateAsync("MainListView");
-               }
                else
                    UserDialogs.Instance.Alert(new AlertConfig()
                    {
@@ -73,13 +63,8 @@ namespace HWInternshipProject.ViewModels
                        Message = TextResources["UserNotFound"],
                        OkText = TextResources["Ok"],
                        OnAction = () => Password = ""
-
                    });
-
-
-           },
-            () => Login.Length != 0 && Password.Length != 0 && !HasLongActivity
-            );
+           }, () => Login.Length != 0 && Password.Length != 0 && !HasLongActivity);
 
             SignInCommand.ObservesProperty(() => Login);
             SignInCommand.ObservesProperty(() => Password);

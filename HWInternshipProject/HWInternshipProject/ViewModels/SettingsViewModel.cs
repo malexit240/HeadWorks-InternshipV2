@@ -31,7 +31,7 @@ namespace HWInternshipProject.ViewModels
         public bool IsLightTheme
         {
             get => _settingsManager.Theme == Theme.Light;
-            set { _settingsManager.Theme = value ? Theme.Light : Theme.Dark; }
+            set => _settingsManager.Theme = value ? Theme.Light : Theme.Dark;
         }
 
         public bool IsEn_US

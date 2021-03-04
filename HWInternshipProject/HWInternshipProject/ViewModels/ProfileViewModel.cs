@@ -19,7 +19,7 @@ namespace HWInternshipProject.ViewModels
 
         public string Name
         {
-            get { return _profile.Name; }
+            get => _profile.Name;
             set
             {
                 _profile.Name = value;
@@ -29,7 +29,7 @@ namespace HWInternshipProject.ViewModels
 
         public string NickName
         {
-            get { return _profile.NickName; }
+            get => _profile.NickName;
             set
             {
                 _profile.NickName = value;
@@ -39,18 +39,12 @@ namespace HWInternshipProject.ViewModels
 
         public string Date
         {
-            get
-            {
-                return _profile.CreationTime.Date.ToString(CultureInfo.CurrentUICulture.DateTimeFormat.LongDatePattern);
-            }
+            get => _profile.CreationTime.Date.ToString(new CultureInfo("en_US").DateTimeFormat.LongDatePattern);
         }
 
         public string ImageDestination
         {
-            get
-            {
-                return _profile.ImageDestination == "" ? "DefaultProfilePicture.png" : _profile.ImageDestination;
-            }
+            get => _profile.ImageDestination == "" ? "DefaultProfilePicture.png" : _profile.ImageDestination;
         }
 
         public DelegateCommand DeleteCommand { get; set; }

@@ -6,6 +6,7 @@ using HWInternshipProject.Services.Settings;
 using Plugin.CurrentActivity;
 using Prism;
 using Prism.Ioc;
+using System.Reflection;
 
 namespace HWInternshipProject.Droid
 {
@@ -21,12 +22,11 @@ namespace HWInternshipProject.Droid
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
-
-
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
             global::Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
+            PCLAppConfig.ConfigurationManager.Initialise(typeof(HWInternshipProject.App).GetTypeInfo().Assembly.GetManifestResourceStream("HWInternshipProject.App.config"));
             base.OnCreate(savedInstanceState);
             UserDialogs.Init(this);
             CrossCurrentActivity.Current.Init(this, savedInstanceState);

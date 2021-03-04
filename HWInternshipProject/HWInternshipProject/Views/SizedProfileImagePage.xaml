@@ -6,12 +6,11 @@
              x:Class="HWInternshipProject.Views.SizedProfileImagePage"
              BackgroundColor="#90909090">
 
-    <StackLayout BackgroundColor="Transparent">
-        <StackLayout.GestureRecognizers>
+    <Grid BackgroundColor="Transparent">
+        <Grid.GestureRecognizers>
             <TapGestureRecognizer Command="{Binding GoBackCommand}"/>
-        </StackLayout.GestureRecognizers>
+        </Grid.GestureRecognizers>
         <Image Source="{Binding ImageDestination}"
-               HorizontalOptions="CenterAndExpand"
-               VerticalOptions="CenterAndExpand"/>
-    </StackLayout>
+               Margin="20"/>
+    </Grid>
 </ContentPage>

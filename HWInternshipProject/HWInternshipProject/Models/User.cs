@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using Microsoft.EntityFrameworkCore;
-using System.Linq;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using Microsoft.EntityFrameworkCore;
 
 namespace HWInternshipProject.Models
 {
@@ -10,8 +10,11 @@ namespace HWInternshipProject.Models
     {
         private static Guid _currentUserId = Guid.Empty;
 
+        [Key]
         public Guid UserId { get; set; }
+        [Required]
         public string Login { get; set; }
+        [Required]
         public string HashPassword { get; set; }
         public List<Profile> Profiles { get; set; } = new List<Profile>();
         public static User Current

@@ -1,6 +1,7 @@
 ﻿using System.IO;
 using Microsoft.EntityFrameworkCore;
 using Xamarin.Essentials;
+using PCLAppConfig;
 
 namespace HWInternshipProject.Models
 {
@@ -22,11 +23,11 @@ namespace HWInternshipProject.Models
             string dbPath = "";
             try
             {
-                dbPath = Path.Combine(FileSystem.AppDataDirectory, DbName);
+                dbPath = Path.Combine(FileSystem.AppDataDirectory, ConfigurationManager.AppSettings.Get("Database_name"));
             }
             catch (Xamarin.Essentials.NotImplementedInReferenceAssemblyException)
             {
-                dbPath = DbName;
+                dbPath = ConfigurationManager.AppSettings.Get("Database_name");
             }
 
             optionsBuilder.UseSqlite($"Filename={dbPath}");

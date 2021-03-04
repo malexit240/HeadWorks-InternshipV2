@@ -8,7 +8,6 @@ using HWInternshipProject.Resources;
 
 namespace HWInternshipProject.Services.Settings
 {
-
     public class SettingsManager : ISettingsManager
     {
         public Theme Theme
@@ -30,10 +29,8 @@ namespace HWInternshipProject.Services.Settings
         public ProfilesListOrderBy ProfilesListOrderBy
         {
             get => (ProfilesListOrderBy)Preferences.Get(nameof(ProfilesListOrderBy), (int)ProfilesListOrderBy.Name);
-            set
-            {
-                Preferences.Set(nameof(ProfilesListOrderBy), (int)value);
-            }
+            set => Preferences.Set(nameof(ProfilesListOrderBy), (int)value);
+
         }
         public CultureInfo CurrentCultureInfo
         {
@@ -44,6 +41,12 @@ namespace HWInternshipProject.Services.Settings
                 System.Globalization.CultureInfo.CurrentUICulture = value;
                 MessagingCenter.Send<object, CultureChangedMessage>(this, string.Empty, new CultureChangedMessage(value));
             }
+        }
+
+        public void Init()
+        {
+            Theme = Theme;
+            CurrentCultureInfo = CurrentCultureInfo;
         }
     }
 

@@ -19,8 +19,6 @@ namespace HWInternshipProject.Droid
         public override void OnCreate()
         {
             base.OnCreate();
-            var settingsManager = new SettingsManager();
-            settingsManager.CurrentCultureInfo = settingsManager.CurrentCultureInfo;
 
             Xamarin.Essentials.Platform.Init(this);
 
