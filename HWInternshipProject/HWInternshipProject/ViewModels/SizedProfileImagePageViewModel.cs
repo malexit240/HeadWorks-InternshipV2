@@ -1,16 +1,11 @@
 ﻿using Prism.Commands;
-using Prism.Mvvm;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using Prism.Navigation;
-using System.ComponentModel;
 
 namespace HWInternshipProject.ViewModels
 {
     public class SizedProfileImagePageViewModel : ViewModelBase
     {
-        string _imageDestination;
+        string _imageDestination = "";
 
         public string ImageDestination
         {
@@ -26,7 +21,6 @@ namespace HWInternshipProject.ViewModels
 
             if (parameters.ContainsKey("ImageDestination"))
                 ImageDestination = parameters["ImageDestination"].ToString();
-
         }
 
         public SizedProfileImagePageViewModel(INavigationService navigationService) :
@@ -34,7 +28,7 @@ namespace HWInternshipProject.ViewModels
         {
             GoBackCommand = new DelegateCommand(() =>
             {
-                NavigationService.GoBackAsync(null,true,false);
+                NavigationService.GoBackAsync(null, true, false);
             });
         }
     }

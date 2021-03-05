@@ -10,6 +10,5 @@ namespace HWInternshipProject.Services.Models
         Task<Profile> Create(Guid user_id, string nick, string name, string description = "", string imageDestination = "");
         Task Update(Profile profile);
         Task Delete(Profile profile);
-
     }
 }

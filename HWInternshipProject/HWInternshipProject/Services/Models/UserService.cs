@@ -9,10 +9,7 @@ namespace HWInternshipProject.Services.Models
     public class UserService : IUserService
     {
         IUserManager _userManager;
-        public UserService(IUserManager userManager)
-        {
-            _userManager = userManager;
-        }
+        public UserService(IUserManager userManager) => _userManager = userManager;
 
         public async Task<User> SignInAsync(Guid userId)
         {

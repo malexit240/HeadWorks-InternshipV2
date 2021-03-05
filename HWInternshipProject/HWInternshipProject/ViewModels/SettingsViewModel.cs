@@ -1,9 +1,5 @@
-﻿using Prism.Commands;
-using Prism.Mvvm;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Globalization;
+﻿using System.Globalization;
+using Prism.Commands;
 using Prism.Navigation;
 using HWInternshipProject.Services.Settings;
 

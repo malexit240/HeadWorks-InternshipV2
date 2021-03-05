@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using HWInternshipProject.Models;
+
 namespace HWInternshipProject.Services.Models
 {
     public class ProfileManager : IProfileManager
@@ -19,6 +20,7 @@ namespace HWInternshipProject.Services.Models
                     context.profiles.Add(profile);
                     context.SaveChanges();
                     profile.RaiseActualize();
+
                     return profile;
                 }
             });
@@ -62,7 +64,5 @@ namespace HWInternshipProject.Services.Models
                 }
             });
         }
-
-
     }
 }

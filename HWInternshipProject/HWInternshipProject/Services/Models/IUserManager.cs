@@ -1,5 +1,5 @@
-﻿using HWInternshipProject.Models;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
+using HWInternshipProject.Models;
 
 namespace HWInternshipProject.Services.Models
 {

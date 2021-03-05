@@ -1,18 +1,7 @@
 ﻿using Prism.Commands;
-using Prism.Mvvm;
 using Prism.Navigation;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Windows.Input;
-using Xamarin.Forms;
-using HWInternshipProject.Models;
-using HWInternshipProject.Services.Models;
 using Acr.UserDialogs;
-using HWInternshipProject.Resources;
-using HWInternshipProject.Services.Settings;
+using HWInternshipProject.Services.Models;
 using HWInternshipProject.Views;
 
 namespace HWInternshipProject.ViewModels
@@ -48,7 +37,6 @@ namespace HWInternshipProject.ViewModels
         public SignInViewModel(INavigationService navigationService, IUserService userService) :
             base(navigationService)
         {
-            var c = System.Globalization.CultureInfo.CurrentUICulture;
             SignInCommand = new DelegateCommand(async () =>
            {
                HasLongActivity = true;

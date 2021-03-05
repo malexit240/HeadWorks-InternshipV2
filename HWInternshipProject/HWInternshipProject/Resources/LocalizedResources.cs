@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Globalization;
 using System.Resources;
-using System.Text;
 using Xamarin.Forms;
 
 namespace HWInternshipProject.Resources
@@ -19,23 +17,18 @@ namespace HWInternshipProject.Resources
 
         public string this[string key]
         {
-            get
-            {
-                return ResourceManager.GetString(key, CurrentCultureInfo);
-            }
+            get => ResourceManager.GetString(key, CurrentCultureInfo);
         }
 
         public LocalizedResources(Type resource, string language = null)
-        : this(resource, new CultureInfo(language ?? DEFAULT_LANGUAGE))
-        { }
+        : this(resource, new CultureInfo(language ?? DEFAULT_LANGUAGE)) { }
 
         public LocalizedResources(Type resource, CultureInfo cultureInfo)
         {
             CurrentCultureInfo = cultureInfo;
             ResourceManager = new ResourceManager(resource);
 
-            MessagingCenter.Subscribe<object, CultureChangedMessage>(this,
-                string.Empty, OnCultureChanged);
+            MessagingCenter.Subscribe<object, CultureChangedMessage>(this, "", OnCultureChanged);
         }
 
         private void OnCultureChanged(object s, CultureChangedMessage ccm)

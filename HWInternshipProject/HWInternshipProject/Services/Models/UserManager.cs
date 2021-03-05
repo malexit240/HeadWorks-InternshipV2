@@ -18,7 +18,6 @@ namespace HWInternshipProject.Services.Models
                     return !context.users.Any(u => u.Login == login);
                 }
             });
-
         }
 
         public async Task<User> Create(string login, string password)
@@ -57,8 +56,6 @@ namespace HWInternshipProject.Services.Models
                 }
             });
         }
-
-
 
         public async void Delete()
         {

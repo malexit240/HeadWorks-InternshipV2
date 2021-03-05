@@ -1,15 +1,10 @@
-﻿using System;
-using Prism.Mvvm;
-using HWInternshipProject.Models;
-using System.Globalization;
+﻿using System.Globalization;
 using Prism.Commands;
-using Prism.Common;
 using Prism.Navigation;
-using HWInternshipProject.Services.Models;
-using HWInternshipProject.Resources;
 using Acr.UserDialogs;
 using HWInternshipProject.Views;
-using Xamarin.Forms;
+using HWInternshipProject.Models;
+using HWInternshipProject.Services.Models;
 
 namespace HWInternshipProject.ViewModels
 {
@@ -49,7 +44,6 @@ namespace HWInternshipProject.ViewModels
 
         public DelegateCommand DeleteCommand { get; set; }
         public DelegateCommand EditCommand { get; set; }
-
         public DelegateCommand OpenProfileImageCommand { get; set; }
 
         public ProfileViewModel(INavigationService navigationService, IProfileService profileService, Profile profile) :

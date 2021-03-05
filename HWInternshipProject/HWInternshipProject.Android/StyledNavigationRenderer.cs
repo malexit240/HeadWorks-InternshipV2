@@ -14,7 +14,6 @@ namespace HWInternshipProject.Droid
             base.OnElementChanged(e);
             e.NewElement.Style = App.Current.Resources["pageStyle"] as Style;
         }
-
     }
 
 }

@@ -1,5 +1,4 @@
-﻿using System.Threading.Tasks;
-using Prism.Commands;
+﻿using Prism.Commands;
 using Prism.Navigation;
 using Acr.UserDialogs;
 using HWInternshipProject.Services;

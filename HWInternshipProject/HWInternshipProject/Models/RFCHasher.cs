@@ -1,6 +1,5 @@
-﻿using System.Security.Cryptography;
-using System.Text;
-using System;
+﻿using System;
+using System.Security.Cryptography;
 
 namespace HWInternshipProject.Models
 {

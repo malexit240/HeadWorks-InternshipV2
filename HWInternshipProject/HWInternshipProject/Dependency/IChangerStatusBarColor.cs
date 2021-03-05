@@ -4,6 +4,6 @@ namespace HWInternshipProject.Dependency
 {
     public interface IChangerStatusBarColor
     {
-        void SetStatusBarColor(Color color);
+        void SetBarColor(Color color);
     }
 }

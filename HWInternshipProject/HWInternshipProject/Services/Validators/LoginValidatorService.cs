@@ -14,6 +14,7 @@ namespace HWInternshipProject.Services.Validators
         {
             if (login.Length < 4 || login.Length > 16)
                 return LoginValidationStatus.InvalidLength;
+
             if (Char.IsDigit(login[0]))
                 return LoginValidationStatus.StartsWithDigit;
 

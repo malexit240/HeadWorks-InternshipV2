@@ -1,29 +1,18 @@
-using System;
-using System.Collections.Generic;
-using System.Resources;
-
 using Xamarin.Forms;
-using Xamarin.Essentials;
 using Xamarin.Essentials.Interfaces;
 using Xamarin.Essentials.Implementation;
-
 using Prism;
-using Prism.Commands;
 using Prism.Navigation;
 using Prism.Ioc;
-
 using HWInternshipProject.Views;
 using HWInternshipProject.ViewModels;
 using HWInternshipProject.Services.Models;
 using HWInternshipProject.Services.Settings;
 using HWInternshipProject.Services.Validators;
-using HWInternshipProject.Dependency;
-using Xamarin.Forms.Xaml;
 using HWInternshipProject.Models;
 
 namespace HWInternshipProject
 {
-    [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class App
     {
         public App(IPlatformInitializer initializer)

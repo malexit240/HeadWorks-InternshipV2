@@ -23,7 +23,7 @@ namespace HWInternshipProject.Services.Settings
                 else
                     App.Current.Resources.MergedDictionaries.Add(new DarkTheme());
 
-                DependencyService.Get<IChangerStatusBarColor>().SetStatusBarColor((Color)App.Current.Resources["PrimaryColor"]);
+                DependencyService.Get<IChangerStatusBarColor>().SetBarColor((Color)App.Current.Resources["PrimaryColor"]);
             }
         }
         public ProfilesListOrderBy ProfilesListOrderBy
@@ -38,7 +38,7 @@ namespace HWInternshipProject.Services.Settings
             set
             {
                 Preferences.Set(nameof(CurrentCultureInfo), (string)value.Name);
-                System.Globalization.CultureInfo.CurrentUICulture = value;
+                CultureInfo.CurrentUICulture = value;
                 MessagingCenter.Send<object, CultureChangedMessage>(this, string.Empty, new CultureChangedMessage(value));
             }
         }

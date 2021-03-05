@@ -77,7 +77,6 @@ namespace HWInternshipProject.ViewModels
             _profile = new Profile() { UserId = User.Current.UserId };
             AddSaveCommand = new DelegateCommand(() =>
             {
-
                 if (NickName == "" || Name == "")
                 {
                     UserDialogs.Instance.Alert(TextResources["FiledsNandNNmustbefilled"], TextResources["Error"], TextResources["Ok"]);

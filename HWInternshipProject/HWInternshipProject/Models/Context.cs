@@ -1,8 +1,8 @@
 ﻿using System.IO;
-using Microsoft.EntityFrameworkCore;
 using Xamarin.Essentials;
+using Microsoft.EntityFrameworkCore;
 using PCLAppConfig;
-using System;
+
 
 namespace HWInternshipProject.Models
 {
@@ -19,7 +19,7 @@ namespace HWInternshipProject.Models
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            string dbPath = "";
+            string dbPath;
             try
             {
                 dbPath = Path.Combine(FileSystem.AppDataDirectory, ConfigurationManager.AppSettings.Get("Database_name"));
