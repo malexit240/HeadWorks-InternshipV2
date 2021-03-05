@@ -8,8 +8,8 @@ namespace HWInternshipProject.Services.Models
     {
         Task<Profile> Create(Profile profile);
         Task<Profile> Create(Guid user_id, string nick, string name, string description = "", string imageDestination = "");
-        void Update(Profile profile);
-        void Delete(Profile profile);
+        Task Update(Profile profile);
+        Task Delete(Profile profile);
 
     }
 }

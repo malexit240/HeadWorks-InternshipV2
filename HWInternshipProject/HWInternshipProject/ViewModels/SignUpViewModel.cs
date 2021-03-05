@@ -43,15 +43,6 @@ namespace HWInternshipProject.ViewModels
 
         public DelegateCommand SignUpCommand { get; set; }
 
-        private async void SignUp()
-        {
-            await Task.Run(async () =>
-            {
-                
-            });
-
-        }
-
         public SignUpViewModel(INavigationService navigationService, ILoginValidatorService loginValidator, IPasswordValidatorService passwordValidator, IUserService userService) :
             base(navigationService)
         {

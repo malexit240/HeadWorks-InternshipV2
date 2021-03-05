@@ -19,6 +19,7 @@ using HWInternshipProject.Services.Settings;
 using HWInternshipProject.Services.Validators;
 using HWInternshipProject.Dependency;
 using Xamarin.Forms.Xaml;
+using HWInternshipProject.Models;
 
 namespace HWInternshipProject
 {
@@ -46,6 +47,8 @@ namespace HWInternshipProject
 
             new SettingsManager().CurrentCultureInfo = new SettingsManager().CurrentCultureInfo;
             new SettingsManager().Theme = new SettingsManager().Theme;
+
+            using (var context = new Context()) { }
 
             await NavigationService.NavigateAsync("NavigationPage/SignInView", ("Login", login), ("Password", password));
         }

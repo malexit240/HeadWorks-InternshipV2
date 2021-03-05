@@ -13,6 +13,7 @@ using HWInternshipProject.Services.Models;
 using Acr.UserDialogs;
 using HWInternshipProject.Resources;
 using HWInternshipProject.Services.Settings;
+using HWInternshipProject.Views;
 
 namespace HWInternshipProject.ViewModels
 {
@@ -55,7 +56,7 @@ namespace HWInternshipProject.ViewModels
                HasLongActivity = false;
 
                if (user != null)
-                   await navigationService.NavigateAsync("MainListView");
+                   await navigationService.NavigateAsync(nameof(MainListView));
                else
                    UserDialogs.Instance.Alert(new AlertConfig()
                    {

@@ -53,7 +53,7 @@ namespace HWInternshipProject.Services.Models
 
         public void LogOut() => User.Current = null;
 
-        public void SignUp(string login, string password) => _userManager.Create(login, password);
+        public async void SignUp(string login, string password) => await _userManager.Create(login, password);
 
     }
 }

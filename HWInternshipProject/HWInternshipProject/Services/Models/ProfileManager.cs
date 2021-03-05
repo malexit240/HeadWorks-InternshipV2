@@ -36,7 +36,7 @@ namespace HWInternshipProject.Services.Models
             });
         }
 
-        public async void Update(Profile profile)
+        public async Task Update(Profile profile)
         {
             await Task.Run(() =>
             {
@@ -50,7 +50,7 @@ namespace HWInternshipProject.Services.Models
             });
         }
 
-        public async void Delete(Profile profile)
+        public async Task Delete(Profile profile)
         {
             await Task.Run(() =>
             {

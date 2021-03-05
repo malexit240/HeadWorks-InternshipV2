@@ -2,13 +2,12 @@
 using Microsoft.EntityFrameworkCore;
 using Xamarin.Essentials;
 using PCLAppConfig;
+using System;
 
 namespace HWInternshipProject.Models
 {
     public class Context : DbContext
     {
-
-        private static string DbName = "db.sqlite";
         public DbSet<User> users { get; set; }
         public DbSet<Profile> profiles { get; set; }
 
@@ -27,7 +26,7 @@ namespace HWInternshipProject.Models
             }
             catch (Xamarin.Essentials.NotImplementedInReferenceAssemblyException)
             {
-                dbPath = ConfigurationManager.AppSettings.Get("Database_name");
+                dbPath = "db.sqlite";
             }
 
             optionsBuilder.UseSqlite($"Filename={dbPath}");
