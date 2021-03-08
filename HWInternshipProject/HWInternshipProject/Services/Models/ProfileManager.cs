@@ -4,6 +4,9 @@ using HWInternshipProject.Models;
 
 namespace HWInternshipProject.Services.Models
 {
+    /// <summary>
+    /// Implements IProfileManager interface
+    /// </summary>
     public class ProfileManager : IProfileManager
     {
         public async Task<Profile> Create(Profile profile)

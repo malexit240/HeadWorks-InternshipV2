@@ -8,6 +8,9 @@ using System;
 
 namespace HWInternshipProject.Services.Models
 {
+    /// <summary>
+    /// Implements IProfileService interface
+    /// </summary>
     public class ProfileService : IProfileService
     {
         IProfileManager _profileManager;

@@ -6,9 +6,18 @@ using PCLAppConfig;
 
 namespace HWInternshipProject.Models
 {
+    /// <summary>
+    /// Represents session with the database
+    /// </summary>
     public class Context : DbContext
     {
+        /// <summary>
+        /// Users table in database
+        /// </summary>
         public DbSet<User> users { get; set; }
+        /// <summary>
+        /// Profiles table in database
+        /// </summary>
         public DbSet<Profile> profiles { get; set; }
 
         public Context()

@@ -5,6 +5,9 @@ using System.Threading.Tasks;
 
 namespace HWInternshipProject.Services.Models
 {
+    /// <summary>
+    /// Implements IUserManager interface
+    /// </summary>
     public class UserManager : IUserManager
     {
         public IUserManager Instance { get => Instance != null ? Instance : Instance = new UserManager(); set => Instance = value; }
