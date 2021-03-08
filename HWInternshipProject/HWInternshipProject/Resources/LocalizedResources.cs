@@ -6,6 +6,10 @@ using Xamarin.Forms;
 
 namespace HWInternshipProject.Resources
 {
+    /// <summary>
+    /// *This code was stolen*
+    /// Resources class for dynamic localization
+    /// </summary>
     public class LocalizedResources : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;

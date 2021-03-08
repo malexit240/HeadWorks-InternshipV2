@@ -3,6 +3,9 @@ using System.Linq;
 
 namespace HWInternshipProject.Services.Validators
 {
+    /// <summary>
+    /// Implemets IPasswordValidatorService inteface
+    /// </summary>
     public class PasswordValidatorService : IPasswordValidatorService
     {
         public PasswordValidationStatus IsPasswordValid(string password)

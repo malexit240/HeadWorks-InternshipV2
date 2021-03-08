@@ -8,6 +8,9 @@ using HWInternshipProject.Resources;
 
 namespace HWInternshipProject.Services.Settings
 {
+    /// <summary>
+    /// Implements ISettingsManager interface
+    /// </summary>
     public class SettingsManager : ISettingsManager
     {
         public Theme Theme
@@ -32,6 +35,7 @@ namespace HWInternshipProject.Services.Settings
             set => Preferences.Set(nameof(ProfilesListOrderBy), (int)value);
 
         }
+
         public CultureInfo CurrentCultureInfo
         {
             get => new CultureInfo(Preferences.Get(nameof(CurrentCultureInfo), CultureInfo.CurrentCulture.Name));

@@ -4,6 +4,9 @@ using HWInternshipProject.Services.Models;
 
 namespace HWInternshipProject.Services.Validators
 {
+    /// <summary>
+    /// Implemets ILoginValidatorService inteface
+    /// </summary>
     public class LoginValidatorService : ILoginValidatorService
     {
         IUserManager _userManager;

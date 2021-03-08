@@ -4,6 +4,10 @@ using System.Globalization;
 
 namespace HWInternshipProject.EventArgsConverters
 {
+    /// <summary>
+    /// *This code was stolen*
+    /// Converts event arguments to item element
+    /// </summary>
     public class ItemTappedEventArgsConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)

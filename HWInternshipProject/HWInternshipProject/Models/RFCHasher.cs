@@ -4,12 +4,18 @@ using System.Security.Cryptography;
 namespace HWInternshipProject.Models
 {
     /// <summary>
-    /// This code was stolen
+    /// *This code was stolen*
+    /// Creates a password hash and checks if the hash and password match
     /// </summary>
     public static class RFCHasher
     {
         const int SaltSize = 16, HashSize = 20, HashIter = 10000;
 
+        /// <summary>
+        /// Returns hash from password
+        /// </summary>
+        /// <param name="password"></param>
+        /// <returns></returns>
         public static string GetHash(string password)
         {
             byte[] salt;
@@ -23,6 +29,12 @@ namespace HWInternshipProject.Models
 
         }
 
+        /// <summary>
+        /// Retuns whether password and hash match
+        /// </summary>
+        /// <param name="entry_password"></param>
+        /// <param name="saved_hash"></param>
+        /// <returns></returns>
         public static bool Verify(string entry_password, string saved_hash)
         {
             try
