@@ -18,7 +18,7 @@ namespace HWInternshipProject.Services.Models
             {
                 using (var context = new Context())
                 {
-                    return !context.users.Any(u => u.Login == login);
+                    return !context.Users.Any(u => u.Login == login);
                 }
             });
         }
@@ -40,7 +40,7 @@ namespace HWInternshipProject.Services.Models
                         HashPassword = RFCHasher.GetHash(password)
                     };
 
-                    context.users.Add(user);
+                    context.Users.Add(user);
                     context.SaveChanges();
                     return user;
                 }
@@ -54,7 +54,7 @@ namespace HWInternshipProject.Services.Models
             {
                 using (var context = new Context())
                 {
-                    context.users.Update(User.Current);
+                    context.Users.Update(User.Current);
                     context.SaveChanges();
                 }
             });
@@ -66,7 +66,7 @@ namespace HWInternshipProject.Services.Models
             {
                 using (var context = new Context())
                 {
-                    context.users.Remove(User.Current);
+                    context.Users.Remove(User.Current);
                     context.SaveChanges();
                 }
             });

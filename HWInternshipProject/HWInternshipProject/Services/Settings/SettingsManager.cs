@@ -33,7 +33,6 @@ namespace HWInternshipProject.Services.Settings
         {
             get => (ProfilesListOrderBy)Preferences.Get(nameof(ProfilesListOrderBy), (int)ProfilesListOrderBy.Name);
             set => Preferences.Set(nameof(ProfilesListOrderBy), (int)value);
-
         }
 
         public CultureInfo CurrentCultureInfo

@@ -15,14 +15,14 @@ namespace HWInternshipProject.Services.Models
             {
                 using (var context = new Context())
                 {
-                    if (context.users.Find(profile.UserId) == null)
+                    if (context.Users.Find(profile.UserId) == null)
                         throw new NullReferenceException();
 
                     profile.CreationTime = DateTime.Now;
 
-                    context.profiles.Add(profile);
+                    context.Profiles.Add(profile);
                     context.SaveChanges();
-                    profile.RaiseActualize();
+                    profile.InvokeActualize();
 
                     return profile;
                 }
@@ -47,10 +47,10 @@ namespace HWInternshipProject.Services.Models
             {
                 using (var context = new Context())
                 {
-                    context.profiles.Update(profile);
+                    context.Profiles.Update(profile);
                     context.SaveChanges();
 
-                    profile.RaiseActualize();
+                    profile.InvokeActualize();
                 }
             });
         }
@@ -61,9 +61,9 @@ namespace HWInternshipProject.Services.Models
             {
                 using (var context = new Context())
                 {
-                    context.profiles.Remove(profile);
+                    context.Profiles.Remove(profile);
                     context.SaveChanges();
-                    profile.RaiseActualize();
+                    profile.InvokeActualize();
                 }
             });
         }

@@ -39,7 +39,7 @@ namespace HWInternshipProject.Models
             {
                 using (var context = new Context())
                 {
-                    return _currentUserId == Guid.Empty ? null : (from user in context.users.Include(u => u.Profiles) where user.UserId == _currentUserId select user).First();
+                    return _currentUserId == Guid.Empty ? null : (from user in context.Users.Include(u => u.Profiles) where user.UserId == _currentUserId select user).First();
                 }
             }
             set => _currentUserId = value?.UserId ?? Guid.Empty;

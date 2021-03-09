@@ -23,7 +23,7 @@ namespace HWInternshipProject.Services.Models
             {
                 using (var context = new Context())
                 {
-                    return (from usr in context.users.Include(u => u.Profiles) where usr.UserId == userId select usr).First().Profiles;
+                    return (from usr in context.Users.Include(u => u.Profiles) where usr.UserId == userId select usr).First().Profiles;
                 }
             });
         }

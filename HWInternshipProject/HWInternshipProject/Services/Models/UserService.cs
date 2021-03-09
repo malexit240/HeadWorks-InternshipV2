@@ -21,11 +21,11 @@ namespace HWInternshipProject.Services.Models
             {
                 using (var context = new Context())
                 {
-                    var hashPasword = (from user in context.users where user.Login == login select user.HashPassword).FirstOrDefault();
+                    var hashPasword = (from user in context.Users where user.Login == login select user.HashPassword).FirstOrDefault();
 
                     if (RFCHasher.Verify(password, hashPasword ?? ""))
                     {
-                        var user = (from usr in context.users.Include(u => u.Profiles) where usr.Login == login select usr).First();
+                        var user = (from usr in context.Users.Include(u => u.Profiles) where usr.Login == login select usr).First();
 
                         User.Current = user;
                         return user;

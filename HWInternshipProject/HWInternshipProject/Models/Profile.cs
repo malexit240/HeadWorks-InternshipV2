@@ -51,7 +51,7 @@ namespace HWInternshipProject.Models
         /// <summary>
         /// Notify that model`s object changed in database
         /// </summary>
-        public void RaiseActualize()
+        public void InvokeActualize()
         {
             Actualize?.Invoke(this, new EventArgs());
         }

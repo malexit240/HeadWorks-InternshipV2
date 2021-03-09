@@ -14,11 +14,11 @@ namespace HWInternshipProject.Models
         /// <summary>
         /// Users table in database
         /// </summary>
-        public DbSet<User> users { get; set; }
+        public DbSet<User> Users { get; set; }
         /// <summary>
         /// Profiles table in database
         /// </summary>
-        public DbSet<Profile> profiles { get; set; }
+        public DbSet<Profile> Profiles { get; set; }
 
         public Context()
         {
@@ -35,7 +35,7 @@ namespace HWInternshipProject.Models
             }
             catch (Xamarin.Essentials.NotImplementedInReferenceAssemblyException)
             {
-                dbPath = "db.sqlite";
+                dbPath = "test.sqlite";
             }
 
             optionsBuilder.UseSqlite($"Filename={dbPath}");
