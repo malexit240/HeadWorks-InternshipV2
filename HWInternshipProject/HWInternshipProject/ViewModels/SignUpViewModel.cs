@@ -9,14 +9,18 @@ namespace HWInternshipProject.ViewModels
 {
     public class SignUpViewModel : ViewModelBase
     {
+        #region ---private Properties---
+        private IUserService UserService { get; set; }
+        private ILoginValidatorService LoginValidator { get; set; }
+        private IPasswordValidatorService PasswordValidator { get; set; }
+        #endregion
+
+        #region ---Binable Properties---
         private string _login = "";
         private string _password = "";
         private string _confirm_password = "";
         private bool _hasLongActivity = false;
 
-        private IUserService _userService;
-        private ILoginValidatorService _loginValidator;
-        private IPasswordValidatorService _passwordValidator;
 
         public string Login
         {
@@ -33,21 +37,19 @@ namespace HWInternshipProject.ViewModels
             get => _confirm_password;
             set => SetProperty(ref _confirm_password, value);
         }
+        #endregion
 
-        public bool HasLongActivity
-        {
-            get => _hasLongActivity;
-            set => SetProperty(ref _hasLongActivity, value);
-        }
-
+        #region ---Commands---
         public DelegateCommand SignUpCommand { get; set; }
+        #endregion
 
+        #region ---Constructors---
         public SignUpViewModel(INavigationService navigationService, ILoginValidatorService loginValidator, IPasswordValidatorService passwordValidator, IUserService userService) :
             base(navigationService)
         {
-            _loginValidator = loginValidator;
-            _passwordValidator = passwordValidator;
-            _userService = userService;
+            LoginValidator = loginValidator;
+            PasswordValidator = passwordValidator;
+            UserService = userService;
 
             SignUpCommand = new DelegateCommand(async () =>
                {
@@ -58,7 +60,7 @@ namespace HWInternshipProject.ViewModels
                        return;
                    }
 
-                   switch (_passwordValidator.IsPasswordValid(Password))
+                   switch (PasswordValidator.IsPasswordValid(Password))
                    {
                        case PasswordValidationStatus.InvalidLength:
                            UserDialogs.Instance.Alert(TextResources["PasswordLengthInvalid"], TextResources["Error"], TextResources["Ok"]);
@@ -68,7 +70,7 @@ namespace HWInternshipProject.ViewModels
                            return;
                    }
 
-                   switch (await _loginValidator.IsLoginValid(Login))
+                   switch (await LoginValidator.IsLoginValid(Login))
                    {
                        case LoginValidationStatus.InvalidLength:
                            UserDialogs.Instance.Alert(TextResources["LoginInvalidLengthError"], TextResources["Error"], TextResources["Ok"]);
@@ -81,7 +83,7 @@ namespace HWInternshipProject.ViewModels
                            return;
                    }
 
-                   _userService.SignUp(Login, Password);
+                   UserService.SignUp(Login, Password);
 
                    await NavigationService.GoBackAsync(("Login", Login));
                }, () => Login.Length != 0 && Password.Length != 0 && ConfirmPassword.Length != 0);
@@ -90,5 +92,6 @@ namespace HWInternshipProject.ViewModels
             SignUpCommand.ObservesProperty(() => Password);
             SignUpCommand.ObservesProperty(() => ConfirmPassword);
         }
+        #endregion
     }
 }

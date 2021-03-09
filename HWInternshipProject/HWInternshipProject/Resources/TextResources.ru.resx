@@ -138,6 +138,9 @@
   <data name="Description" xml:space="preserve">
     <value>Описание</value>
   </data>
+  <data name="DescriptionLenghtOverlength" xml:space="preserve">
+    <value>Длина описания должна быть меньше 120</value>
+  </data>
   <data name="Edit" xml:space="preserve">
     <value>Редактировать</value>
   </data>

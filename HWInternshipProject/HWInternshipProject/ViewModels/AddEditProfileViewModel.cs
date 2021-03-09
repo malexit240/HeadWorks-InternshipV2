@@ -10,6 +10,7 @@ namespace HWInternshipProject.ViewModels
 {
     public class AddEditProfileViewModel : ViewModelBase
     {
+        #region ---Bindable Properties---
         bool _IsEdit = false;
         Profile _profile;
 
@@ -52,25 +53,14 @@ namespace HWInternshipProject.ViewModels
                 RaisePropertyChanged("ImageDestination");
             }
         }
+        #endregion
 
+        #region ---Commands---
         public DelegateCommand AddSaveCommand { get; set; }
         public DelegateCommand SelectImageCommand { get; set; }
+        #endregion
 
-        public override void OnNavigatedTo(INavigationParameters parameters)
-        {
-            base.OnNavigatedTo(parameters);
-
-            if (parameters.ContainsKey("profile"))
-            {
-                _IsEdit = true;
-                _profile = parameters.GetValue<Profile>("profile");
-                RaisePropertyChanged("Name");
-                RaisePropertyChanged("NickName");
-                RaisePropertyChanged("Description");
-                RaisePropertyChanged("ImageDestination");
-            }
-        }
-
+        #region ---Constructors---
         public AddEditProfileViewModel(INavigationService navigationService, IProfileService profileService) :
             base(navigationService)
         {
@@ -80,6 +70,12 @@ namespace HWInternshipProject.ViewModels
                 if (NickName == "" || Name == "")
                 {
                     UserDialogs.Instance.Alert(TextResources["FiledsNandNNmustbefilled"], TextResources["Error"], TextResources["Ok"]);
+                    return;
+                }
+
+                if (Description.Length > 120)
+                {
+                    UserDialogs.Instance.Alert(TextResources["DescriptionLenghtOverlength"], TextResources["Error"], TextResources["Ok"]);
                     return;
                 }
 
@@ -111,5 +107,23 @@ namespace HWInternshipProject.ViewModels
                 });
             });
         }
+        #endregion
+
+        #region ---Overrides--
+        public override void OnNavigatedTo(INavigationParameters parameters)
+        {
+            base.OnNavigatedTo(parameters);
+
+            if (parameters.ContainsKey("profile"))
+            {
+                _IsEdit = true;
+                _profile = parameters.GetValue<Profile>("profile");
+                RaisePropertyChanged("Name");
+                RaisePropertyChanged("NickName");
+                RaisePropertyChanged("Description");
+                RaisePropertyChanged("ImageDestination");
+            }
+        }
+        #endregion
     }
 }

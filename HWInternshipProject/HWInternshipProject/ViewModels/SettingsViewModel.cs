@@ -7,6 +7,7 @@ namespace HWInternshipProject.ViewModels
 {
     public class SettingsViewModel : ViewModelBase
     {
+        #region --- Bindable Properties---
         ISettingsManager _settingsManager;
 
         public bool OrderBy_NickName
@@ -39,25 +40,30 @@ namespace HWInternshipProject.ViewModels
         {
             get => _settingsManager.CurrentCultureInfo.Name == "ru-RU";
         }
+        #endregion
 
+        #region ---Commands---
         public DelegateCommand CheckedNickNameCommand { get; set; }
         public DelegateCommand CheckedNameCommand { get; set; }
         public DelegateCommand CheckedCreationTimeCommand { get; set; }
 
         public DelegateCommand CheckedEnglishCommand { get; set; }
         public DelegateCommand CheckedRussianCommand { get; set; }
+        #endregion
 
+        #region ---Constructors---
         public SettingsViewModel(INavigationService navigationService, ISettingsManager settingsManager) :
             base(navigationService)
         {
-            _settingsManager = settingsManager;
+            this._settingsManager = settingsManager;
 
-            CheckedNickNameCommand = new DelegateCommand(() => { _settingsManager.ProfilesListOrderBy = ProfilesListOrderBy.NickName; });
-            CheckedNameCommand = new DelegateCommand(() => { _settingsManager.ProfilesListOrderBy = ProfilesListOrderBy.Name; });
-            CheckedCreationTimeCommand = new DelegateCommand(() => { _settingsManager.ProfilesListOrderBy = ProfilesListOrderBy.CreationTime; });
+            CheckedNickNameCommand = new DelegateCommand(() => { this._settingsManager.ProfilesListOrderBy = ProfilesListOrderBy.NickName; });
+            CheckedNameCommand = new DelegateCommand(() => { this._settingsManager.ProfilesListOrderBy = ProfilesListOrderBy.Name; });
+            CheckedCreationTimeCommand = new DelegateCommand(() => { this._settingsManager.ProfilesListOrderBy = ProfilesListOrderBy.CreationTime; });
 
-            CheckedEnglishCommand = new DelegateCommand(() => { _settingsManager.CurrentCultureInfo = new CultureInfo("en-US"); });
-            CheckedRussianCommand = new DelegateCommand(() => { _settingsManager.CurrentCultureInfo = new CultureInfo("ru-RU"); });
+            CheckedEnglishCommand = new DelegateCommand(() => { this._settingsManager.CurrentCultureInfo = new CultureInfo("en-US"); });
+            CheckedRussianCommand = new DelegateCommand(() => { this._settingsManager.CurrentCultureInfo = new CultureInfo("ru-RU"); });
         }
+        #endregion
     }
 }

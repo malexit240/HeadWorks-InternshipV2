@@ -9,8 +9,6 @@
              Style="{DynamicResource pageStyle}">
 
     <StackLayout Margin="20, 5">
-        <ActivityIndicator IsRunning="{Binding HasLongActivity}" 
-                           Style="{DynamicResource activityIndicatorStyle}"/>
         <StackLayout VerticalOptions="CenterAndExpand">
             <Entry Placeholder="{Binding TextResources[Login]}"
                Text="{Binding Login}"

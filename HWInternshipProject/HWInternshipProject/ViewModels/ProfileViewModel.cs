@@ -5,11 +5,13 @@ using Acr.UserDialogs;
 using HWInternshipProject.Views;
 using HWInternshipProject.Models;
 using HWInternshipProject.Services.Models;
+using HWInternshipProject.Services.Settings;
 
 namespace HWInternshipProject.ViewModels
 {
     public class ProfileViewModel : ViewModelBase
     {
+        #region ---Bindable Properties---
         Profile _profile;
 
         public string Name
@@ -34,18 +36,22 @@ namespace HWInternshipProject.ViewModels
 
         public string Date
         {
-            get => _profile.CreationTime.Date.ToString(new CultureInfo("en_US").DateTimeFormat.LongDatePattern);
+            get => _profile.CreationTime.Date.ToString(((ISettingsManager)App.Current.Container.Resolve(typeof(ISettingsManager))).CurrentCultureInfo.DateTimeFormat.ShortDatePattern);
         }
 
         public string ImageDestination
         {
             get => _profile.ImageDestination == "" ? "DefaultProfilePicture.png" : _profile.ImageDestination;
         }
+        #endregion
 
+        #region ---Commands---
         public DelegateCommand DeleteCommand { get; set; }
         public DelegateCommand EditCommand { get; set; }
         public DelegateCommand OpenProfileImageCommand { get; set; }
+        #endregion
 
+        #region ---Constructors---
         public ProfileViewModel(INavigationService navigationService, IProfileService profileService, Profile profile) :
             base(navigationService)
         {
@@ -77,5 +83,6 @@ namespace HWInternshipProject.ViewModels
                 navigationService.NavigateAsync($"{nameof(SizedProfileImagePage)}", parameters, true, false);
             });
         }
+        #endregion
     }
 }

@@ -8,8 +8,10 @@ namespace HWInternshipProject.ViewModels
 {
     public class SignInViewModel : ViewModelBase
     {
-        string _login = "";
-        string _password = "";
+        #region ---Bindable Properties---
+        private string _login = "";
+        private string _password = "";
+        private bool _hasLongActivity = false;
 
         public string Login
         {
@@ -23,17 +25,19 @@ namespace HWInternshipProject.ViewModels
             set => SetProperty(ref _password, value);
         }
 
-        private bool _hasLongActivity = false;
-
         public bool HasLongActivity
         {
             get => _hasLongActivity;
             set => SetProperty(ref _hasLongActivity, value);
         }
+        #endregion
 
+        #region ---Commands---
         public DelegateCommand SignInCommand { get; set; }
         public DelegateCommand SignUpCommand { get; set; }
+        #endregion
 
+        #region ---Constructors---
         public SignInViewModel(INavigationService navigationService, IUserService userService) :
             base(navigationService)
         {
@@ -61,12 +65,15 @@ namespace HWInternshipProject.ViewModels
 
             SignUpCommand = new DelegateCommand(() => navigationService.NavigateAsync("SignUpView"));
         }
+        #endregion
 
+        #region ---Overrides---
         public override void OnNavigatedTo(INavigationParameters parameters)
         {
             base.OnNavigatedTo(parameters);
             Login = parameters.GetValue<string>("Login") ?? Login;
             Password = parameters.GetValue<string>("Password") ?? Password;
         }
+        #endregion
     }
 }

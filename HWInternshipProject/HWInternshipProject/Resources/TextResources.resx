@@ -138,6 +138,9 @@
   <data name="Description" xml:space="preserve">
     <value>Description</value>
   </data>
+  <data name="DescriptionLenghtOverlength" xml:space="preserve">
+    <value>Description length must be lower than 120</value>
+  </data>
   <data name="Edit" xml:space="preserve">
     <value>Edit</value>
   </data>

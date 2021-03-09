@@ -124,6 +124,15 @@ namespace HWInternshipProject.Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Description length must be lower than 120.
+        /// </summary>
+        internal static string DescriptionLenghtOverlength {
+            get {
+                return ResourceManager.GetString("DescriptionLenghtOverlength", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Edit.
         /// </summary>
         internal static string Edit {
