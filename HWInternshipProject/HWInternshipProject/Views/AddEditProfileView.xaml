@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="HWInternshipProject.Views.AddEditProfileView"
+             xmlns:resources="clr-namespace:HWInternshipProject.Resources"
+             Title="{Binding TextResources[Title_AddEditProfile]}"
+             Style="{DynamicResource pageStyle}">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="ic_save3x.png" Command="{Binding AddSaveCommand}" />
+    </ContentPage.ToolbarItems>
+    <Grid RowDefinitions="1*, 2*">
+        <Image Source="{Binding ImageDestination}" 
+               HeightRequest="300"
+               Grid.Row="0">
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding SelectImageCommand}"/>
+            </Image.GestureRecognizers>
+        </Image>
+        <StackLayout Grid.Row="1">
+            <Entry Placeholder="{Binding TextResources[NickName]}" 
+                   Text="{Binding NickName}"
+                   Style="{DynamicResource entryStyle}"/>
+            <Entry Placeholder="{Binding TextResources[Name]}" 
+                   Text="{Binding Name}"
+                   MaxLength="120"
+                   Style="{DynamicResource entryStyle}"/>
+            <Editor Placeholder="{Binding TextResources[Description]}"
+                    Text="{Binding Description}"
+                    HeightRequest="200"
+                    Style="{DynamicResource editorStyle}"/>
+        </StackLayout>
+    </Grid>
+
+</ContentPage>

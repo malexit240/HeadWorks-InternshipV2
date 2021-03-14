@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="HWInternshipProject.Views.MainListView"
+             xmlns:resources="clr-namespace:HWInternshipProject.Resources"
+             xmlns:converters="clr-namespace:HWInternshipProject.EventArgsConverters"
+             Title="{Binding TextResources[Title_MainList]}"
+             Style="{DynamicResource pageStyle}">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="ic_exit_to_app3x.png"
+                     Command="{Binding LogOutCommand}"/>
+        <ToolbarItem IconImageSource="ic_settings3x.png"
+                     Command="{Binding GoToSettingsViewCommand}"/>
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Resources>
+        <converters:ItemTappedEventArgsConverter x:Key="itemTappedEventArgsConverter" />
+    </ContentPage.Resources>
+
+    <Grid RowDefinitions="*">
+        <ListView ItemsSource="{Binding Profiles}"
+                  SelectionMode="None"
+                  HasUnevenRows="True"
+                  IsVisible="{Binding IsListVisible}"
+                  Grid.Row="0">
+            <ListView.Behaviors>
+                <prism:EventToCommandBehavior EventName="ItemTapped"
+                                              Command="{Binding OpenProfileImageCommand}"
+                                              EventArgsConverter="{StaticResource itemTappedEventArgsConverter}" />
+            </ListView.Behaviors>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <ViewCell.ContextActions>
+                            <MenuItem Command="{Binding DeleteCommand}"
+                                              Text="{Binding TextResources[Delete]}"/>
+                            <MenuItem Command="{Binding EditCommand}"
+                                              Text="{Binding TextResources[Edit]}"/>
+                        </ViewCell.ContextActions>
+                        <Grid ColumnDefinitions="1*,2*" HeightRequest="120">
+                            <Image Grid.Column="0" 
+                                   Source="{Binding ImageDestination}">
+                            </Image>
+                            <StackLayout Grid.Column="1" VerticalOptions="Center">
+                                <Label Text="{Binding Name}" Style="{DynamicResource labelStyle}"/>
+                                <Label Text="{Binding NickName}" Style="{DynamicResource labelStyle}"/>
+                                <Label Text="{Binding Date}" Style="{DynamicResource labelStyle}"/>
+                            </StackLayout>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Label Text="{Binding TextResources[NoAddedProfiles]}" 
+               Style="{DynamicResource labelStyle}"
+                   IsVisible="{Binding  IsNoProfilesAdded}"
+                   VerticalOptions="CenterAndExpand"
+                   HorizontalOptions="CenterAndExpand"/>
+        <Button Grid.Row="0" 
+                ImageSource="ic_add3x.png"
+                Style="{DynamicResource floatButtonStyle}"
+                Command="{Binding AddProfileCommand}"/>
+    </Grid>
+
+</ContentPage>

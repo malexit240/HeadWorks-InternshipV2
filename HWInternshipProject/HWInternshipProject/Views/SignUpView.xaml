@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"
+             xmlns:resources="clr-namespace:HWInternshipProject.Resources"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="HWInternshipProject.Views.SignUpView"
+             Title="{Binding TextResources[Title_UserSignUp]}"
+             Style="{DynamicResource pageStyle}">
+
+    <StackLayout Margin="20, 5">
+        <StackLayout VerticalOptions="CenterAndExpand">
+            <Entry Placeholder="{Binding TextResources[Login]}"
+               Text="{Binding Login}"
+                   Style="{DynamicResource entryStyle}"/>
+            <Entry Placeholder="{Binding TextResources[Password]}"
+               Text="{Binding Password}"
+               IsPassword="True"
+               Style="{DynamicResource entryStyle}"/>
+            <Entry Placeholder="{Binding TextResources[ConfirmPassword]}"
+               Text="{Binding ConfirmPassword}"
+               IsPassword="True"
+               Style="{DynamicResource entryStyle}"/>
+        </StackLayout>
+        <Button Text="{Binding TextResources[SignUp]}"
+                Command="{Binding SignUpCommand}"
+                Style="{DynamicResource buttonStyle}"
+                Margin="0,0,0,60"/>
+    </StackLayout>
+</ContentPage>
