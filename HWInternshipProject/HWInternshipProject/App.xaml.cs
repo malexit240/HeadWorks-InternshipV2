@@ -26,20 +26,11 @@ namespace HWInternshipProject
 
             InitializeComponent();
 
-            if (!this.Properties.ContainsKey("login"))
-                this.Properties.Add("login", "malexit240");
-            if (!this.Properties.ContainsKey("password"))
-                this.Properties.Add("password", "Password123");
-
-            var login = this.Properties["login"];
-            var password = this.Properties["password"];
-
-            new SettingsManager().CurrentCultureInfo = new SettingsManager().CurrentCultureInfo;
-            new SettingsManager().Theme = new SettingsManager().Theme;
+            ((ISettingsManager)Container.Resolve(typeof(ISettingsManager))).Init();
 
             using (var context = new Context()) { }
 
-            await NavigationService.NavigateAsync("NavigationPage/SignInView", ("Login", login), ("Password", password));
+            await NavigationService.NavigateAsync("NavigationPage/SignInView");
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)

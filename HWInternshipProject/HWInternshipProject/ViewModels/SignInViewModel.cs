@@ -73,6 +73,7 @@ namespace HWInternshipProject.ViewModels
             base.OnNavigatedTo(parameters);
             Login = parameters.GetValue<string>("Login") ?? Login;
             Password = parameters.GetValue<string>("Password") ?? Password;
+
         }
         #endregion
     }
